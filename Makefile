@@ -25,6 +25,7 @@ DOCKER_COMPOSE = docker-compose
 	@echo VCS_REF=$(shell git rev-parse --short HEAD)           >.env
 	@echo VCS_URL=$(shell git config --get remote.origin.url)  >>.env
 	@echo BUILD_DATE=$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")    >>.env
+	@echo USER_TMPDIR=$(shell mktemp)                          >>.env
 
 .PHONY: all
 # target: all – Builds all images

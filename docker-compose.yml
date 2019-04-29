@@ -11,6 +11,7 @@ services:
         org.label-schema.vcs-ref: "${VCS_REF}"
     volumes:
       - .:/home/itis/work
+      - ${USER_TMPDIR}:/check:ro
 
   devpi:
     image: itisfoundation/devpi:latest
