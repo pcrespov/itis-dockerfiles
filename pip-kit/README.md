@@ -29,7 +29,7 @@ docker -it itisfoundation/pip-kit --help
 ```bash
 echo pip-tools > requirements.in
 
-docker -it -v $(pwd):/home/itis/work itisfoundation/pip-kit pip-compile requirements.in
+docker run -it -v $(pwd):/home/itis/work -v $(mktemp):/check  itisfoundation/pip-kit pip-compile requirements.in
 # OR
 docker-compose run pip-kit pip-compile requirements.in
 ```

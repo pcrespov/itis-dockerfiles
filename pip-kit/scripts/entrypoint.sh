@@ -33,14 +33,14 @@ else
     deluser $SC_USER_NAME &> /dev/null
     adduser -u $USERID -G $GROUPNAME -D -s /bin/sh $SC_USER_NAME
 
-    # TODO: install python packages system wide
+    # TODO: install python packages system wide 
     #find /home/itis/.local/ -user $SC_USER_ID -exec chown -h $SC_USER_NAME {} \;
 fi
 
 echo "Booting ..."
 echo "  User    :`id $SC_USER_NAME`"
 
-# TODO: 
+
 
 # TODO: su-exec $SC_USER_NAME "python -m $@"
 exec su-exec $SC_USER_NAME "$@"

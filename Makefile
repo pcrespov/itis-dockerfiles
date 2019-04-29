@@ -35,11 +35,13 @@ all: build
 # target: build – Builds all images (uses cache)
 build: .env 
 	${DOCKER_COMPOSE} build
+	touch .env
 
 .PHONY: rebuild
 # target: rebuild – Builds all images from scratch
 rebuild: .env 
 	${DOCKER_COMPOSE} build --no-cache
+	touch .env
 
 
 .PHONY: deploy
@@ -47,6 +49,7 @@ rebuild: .env
 deploy: .env 
 	echo TODO: tagging images and pushing to dockerhub ...
 	#${DOCKER_COMPOSE} push
+	touch .env
 
 
 .PHONY: clean
