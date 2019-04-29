@@ -20,12 +20,11 @@ RUN pip --no-cache \
 
 WORKDIR /build
 
-USER itis
-
 COPY requirements.txt requirements.txt
-RUN pip --no-cache \
+RUN umask 022 && \
+    pip --no-cache \
         --disable-pip-version-check \
-        install --user -r requirements.txt
+        install -r requirements.txt
 
 COPY scripts scripts
 COPY README.md README.md
@@ -33,6 +32,5 @@ COPY README.md README.md
 WORKDIR /home/itis/work
 VOLUME /home/itis/work
 
-USER root
 ENTRYPOINT [ "/bin/sh", "/build/scripts/entrypoint.sh" ]
 CMD ["/bin/sh", "/build/scripts/help.sh"]
